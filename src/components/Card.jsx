@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../Context/MainContext";
+import indir from "../helper/indir.png"
 
 const Card = ({ item }) => {
   const image_url = `https://image.tmdb.org/t/p/w500`;
@@ -21,7 +22,7 @@ const Card = ({ item }) => {
             <div className="flex flex-col md:flex-row max-w-xl  rounded-lg  shadow-lg  bg-slate-200 w-[350px] md:w-[500px]">
               <img
                 className="mx-auto h-[150px]  object-fit w-72 rounded-t-lg rounded-none rounded-l-lg md:h-[250px] my-auto"
-                src={`${image_url + movie?.poster_path}`}
+                src={(!image_url + movie?.poster_path) ? (image_url + movie?.poster_path) : indir }
                 alt=""
               />
               <div className="p-3 flex flex-col justify-start my-auto w-full">
