@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MovieCard from "../components/Card";
+import Card from "../components/Card";
 
 
 const Add = () => {
@@ -77,7 +77,7 @@ const Add = () => {
       </form>
     </div>
     <div className="mt-6">
-    <MovieCard item={results} />
+    <Card item={results} />
     </div>
     
     </>
