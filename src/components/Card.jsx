@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../Context/MainContext";
 
 const Card = ({ item }) => {
-  console.log(item);
   const image_url = `https://image.tmdb.org/t/p/w500`;
+  const data =useContext(GlobalContext)
+//   const {watchList, watched}=state
+  const addToMovieList=(movie)=>{
+    data.dispatch({type:"ADD_MOVIE_TO_WATCHLIST",payload:movie})
+  }
+  const addToWacthed=(movie)=>{
+    data.dispatch({type:"ADD_MOVIE_TO_WATCHED",payload:movie})
+  }
+  console.log(data.state.watchList)
+  console.log(data.state.watched)
   return (
     <>
       {item.map((movie, index) => {
@@ -20,8 +30,8 @@ const Card = ({ item }) => {
                 </h5>
                 <p className="text-gray-600 text-xs">{movie.original_title}</p>
                 <div className="flex mt-4 bg-slate-300 rounded-md p-4  gap-4 w-full">
-                <button className="bg-slate-400 rounded-sm text-slate-500 font-bold px-4 py-1">ADD TO WATCHlİST</button>
-                <button className="bg-slate-400 rounded-sm text-slate-500 font-bold px-4 py-1">ADD TO WATCHED</button>
+                <button className="bg-slate-400 rounded-sm text-slate-900 font-bold px-4 py-1 " onClick={()=>addToMovieList(movie)}>ADD TO WATCHLİST</button>
+                <button className="bg-slate-400 rounded-sm text-slate-900 font-bold px-4 py-1" onClick={()=>addToWacthed(movie)}>ADD TO WATCHED</button>
               </div>
               </div>
               

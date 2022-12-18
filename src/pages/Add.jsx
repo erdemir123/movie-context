@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import MovieCard from "../components/Card";
 
+
 const Add = () => {
   const [query, SetQuery] = useState("");
   const [results, SetResults] = useState([]);
+ 
   const handleSearch = (e) => {
     e.preventDefault();
     const api_key = `api_key=0924e6736c5942a0471ffc6954cb4ed2`;
